@@ -1,0 +1,23 @@
+<div id="card" class="card">
+	<div class="card-body">
+	  <h5 class="card-title">{{ticket.title}} <span class="badge badge-dark">{{totalPoint()}} Points</span></h5>
+	  <h6  class="card-subtitle mb-2 text-muted"><span *ngFor="let tag of ticket.tags;" class="badge badge-pill badge-dark">{{tag}}</span></h6>
+	  <h6 *ngIf="ticket.endingDate" class="card-subtitle mb-2 text-muted">End at :{{ticket.endingDate| date: 'dd/MM/yyyy hh:mm'}}</h6>
+	  <p class="card-text">{{ticket.description}}
+	  </p>
+	  <div id="cardButton">
+		<div ngbDropdown class="d-inline-block">
+			<button type="button" class="btn btn-outline-primary" id="mButton" ngbDropdownToggle>{{getNamedStatus(ticket.status)}}</button>
+			<div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+			  <button (click)="updateStatus(0)" ngbDropdownItem>Nouveau</button>
+			  <button (click)="updateStatus(1)" ngbDropdownItem>Prêt</button>
+			  <button (click)="updateStatus(2)" ngbDropdownItem>En cours</button>
+			  <button (click)="updateStatus(3)" ngbDropdownItem>Prêt pour les tests</button>
+			  <button (click)="updateStatus(4)" ngbDropdownItem>Terminé</button>
+			  <button (click)="updateStatus(5)" ngbDropdownItem>Archivé</button>
+			</div>
+	  <button (click)="goToEdit()" type="button" class="btn btn-dark" id="mButton">Modifier</button>
+	  <button (click)="deleteTicket()"type="button" class="btn btn-danger" id="mButton">Supprimer</button>
+	</div>
+	</div>
+  </div>

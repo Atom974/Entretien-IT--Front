@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<head>
+
+</head>
+
+<body>
+	<p id="navi" *ngFor="let alert of this.alertService.alerts">
+		<ngb-alert id="customAlert" [type]="alert.type" (closed)="this.alertService.close(alert)">{{ alert.message }}
+		</ngb-alert>
+	</p>
+
+	<form [formGroup]="userSingUpForm" (ngSubmit)="onSubmit()" class="text-center p-5 myDiv">
+		<p class="h2 mb-4">Connexion</p>
+
+		<input type="text" id="username" formControlName="username" class="text-center form-control my-4"
+			placeholder="username">
+		<input type="password" id="password" formControlName="password" class="text-center form-control my-4"
+			placeholder="Password">
+
+		<button  data-toggle="button"  aria-pressed="false" class="btn btn-lg btn-dark my-4"
+			type="submit">S'enregistrer</button>
+		<p><a class="link-dark" routerLink="/home" href="#home">Accueil</a></p>
+
+		<p>Se connecter?
+			<a href="#singup" routerLink="/signup" class="link-dark">Inscription</a>
+		</p>
+
+	</form>
+</body>

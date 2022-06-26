@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<head>
+
+</head>
+
+<body>
+	<p id="navi" *ngFor="let alert of this.alertService.alerts">
+		<ngb-alert id="customAlert" [type]="alert.type" (closed)="this.alertService.close(alert)">{{ alert.message }}
+		</ngb-alert>
+	</p>
+	<div class="container" id="container">
+		<div class="row text-center" id="row1">
+			<H1>Edition de tickets</H1>
+		</div>
+		<form [formGroup]="ticketForm" (ngSubmit)="onSubmit()" id="form">
+		<div class="row" id="row2">
+			<div class="col-8" id="colList">
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon1">Titre</span>
+					</div>
+					<input type="text" formControlName="title" class="form-control" placeholder="Titre" aria-label="Titre"
+						aria-describedby="basic-addon1">
+				</div>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+					  <span class="input-group-text" id="inputGroup-sizing-default">Tags</span>
+					</div>
+					<input type="text" formControlName="tags" placeholder="Tags séparé par une virgule pour plusieur entrée" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+				  </div>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Description</span>
+					</div>
+					<textarea formControlName="description" class="form-control" aria-label="With textarea"></textarea>
+				</div>
+				<button  data-toggle="button"  aria-pressed="false" class="btn btn-lg btn-dark my-4"
+				type="submit">Crée</button>
+
+			</div>
+
+			<div class="col-4" id="colOpt">
+				<div id="optContainer" class="container">
+					<div id="optRow" class="row">
+						<div class="my-6">
+						<label for="typeahead-basic">Search for a user:</label>
+						<input id="typeahead-basic"  [(ngModel)]="model" type="text" class="form-control" formControlName="assignedTo" [ngbTypeahead]="search"/>
+					</div>
+					</div>
+					<div id="optRow" class="row">
+						<input type="text" id="ux" formControlName="ux"
+							class="text-center form-control my-1" placeholder="ux point">
+						<input type="text" id="design" formControlName="design"
+							class="text-center form-control my-1" placeholder="design point">
+							<input type="text" id="front" formControlName="front"
+							class="text-center form-control my-1" placeholder="front point">
+						<input type="text" id="back" formControlName="back"
+							class="text-center form-control my-1" placeholder="back">
+							<div class="">
+								<div class="input-group">
+								  <input class="form-control" formControlName="endingDate" placeholder="yyyy-mm-dd"
+										 name="dp" ngbDatepicker #d="ngbDatepicker">
+								  <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+								</div>
+							  </div>
+					</div>
+					<div id="optRow3" class="row">
+						<div class="btn-group" role="group" aria-label="Checkboxes with Bootstrap 5">
+							<input type="checkbox" formControlName="clientRequirement" class="btn-check" id="btncheck1"
+								autocomplete="off">
+							<label class="btn btn-outline-dark" for="btncheck1">Client Requirement</label>
+							<input type="checkbox" formControlName="teamRequirement" class="btn-check" id="btncheck2"
+								autocomplete="off">
+							<label class="btn btn-outline-dark" for="btncheck2">team Requirement</label>
+							<input type="checkbox" formControlName="lockDependency" class="btn-check" id="btncheck3"
+								autocomplete="off">
+							<label class="btn btn-outline-dark" for="btncheck3">lock Dependency</label>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</form>
+	</div>
+</body>

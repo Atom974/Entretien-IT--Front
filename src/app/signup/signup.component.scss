@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Roboto+Condensed&display=swap');
+
+button {
+	font-family: 'Roboto Condensed', sans-serif;
+}
+html {
+	height: 100%;
+  }
+body {
+	font-family: 'Roboto Condensed', sans-serif;
+	background: rgb(242,145,222);
+	background: linear-gradient(191deg, rgba(242,145,222,1) 0%, rgba(233,183,152,1) 35%, rgba(252,207,51,1) 100%);
+	height: 100vh;
+	padding: 0;
+}
+.myDiv{
+	height: 100vh;
+	padding: 0;
+}
+#navi {
+	position: absolute;
+	top: 0px;
+    right: 0px;
+    width: 33%;
+	height: 100%;
+	z-index: 2;
+}
+#customAlert {
+	display: block;
+}
